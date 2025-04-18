@@ -207,6 +207,7 @@ class AttnGCGMultiPromptAttack(MultiPromptAttack):
             loss = torch.zeros(len(control_cands) * batch_size).to(main_device)
             with torch.no_grad():
                 for j, cand in enumerate(control_cands):
+                    print("current cand: {0} ".format(cand))
                     # Looping through the prompts at this level is less elegant, but
                     # we can manage VRAM better this way
                     progress = tqdm(range(len(self.prompts[0])), total=len(self.prompts[0])) if verbose else enumerate(self.prompts[0])
