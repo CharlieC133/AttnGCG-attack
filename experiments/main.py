@@ -75,7 +75,7 @@ def main(_):
             )
         control, inner_steps = attack.run(
             n_steps=params.n_steps,
-            batch_size=params.batch_size, 
+            batch_size=64, 
             topk=params.topk,
             temp=params.temp,
             target_weight=params.target_weight,
