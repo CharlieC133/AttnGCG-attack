@@ -103,6 +103,7 @@ def main():
             input_ids = tokenizer(current_test_cases, padding=True, return_tensors="pt")
             input_ids['input_ids'] = input_ids['input_ids'].cuda()
             input_ids['attention_mask'] = input_ids['attention_mask'].cuda()
+            print(input_ids['attention_mask'])
             num_input_tokens = input_ids['input_ids'].shape[1]
             outputs = model.generate(input_ids['input_ids'], attention_mask=input_ids['attention_mask'].half(),
                                     generation_config=gen_config, pad_token_id=tokenizer.pad_token_id,
